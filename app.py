@@ -7,13 +7,24 @@ st.set_page_config(page_title="강원대병원 상급종합병원 시나리오",
 st.title("🏥 강원대학교병원 상급종합병원 지정 커버리지 분석")
 st.markdown("강원대학교병원이 상급종합병원으로 추가 지정될 경우, 영서 북부 및 접경 지역의 의료 골든타임 확보 효과를 나타낸 지도입니다.")
 
+# 웹 브라우저 창 크기에 맞춰 지도가 반응형으로 늘어나도록 CSS 주입
+st.markdown("""
+<style>
+    /* Streamlit이 생성하는 iframe(지도 렌더링 영역)의 높이를 화면의 80%로 설정 */
+    iframe {
+        height: 80vh !important; 
+        min-height: 600px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Folium HTML 파일 읽기
 try:
     with open("KNUH_Scenario_Map_RealData.html", "r", encoding="utf-8") as f:
         html_data = f.read()
     
-    # 웹 화면에 HTML 렌더링 (높이 700px)
-    components.html(html_data, height=700)
+    # 웹 화면에 HTML 렌더링
+    components.html(html_data, height=800) # 스타일이 덮어씌워지므로 기본값은 800으로 둠
     
 except FileNotFoundError:
     st.error("지도 HTML 파일을 찾을 수 없습니다. 파일명을 확인해주세요.")
