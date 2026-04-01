@@ -10,9 +10,26 @@ st.markdown("강원대학교병원이 상급종합병원으로 추가 지정될 
 # 웹 브라우저 창 크기에 맞춰 지도가 반응형으로 늘어나도록 CSS 주입
 st.markdown("""
 <style>
-    /* Streamlit이 생성하는 iframe(지도 렌더링 영역)의 높이를 화면의 80%로 설정 */
+    /* 1. Streamlit 기본 상하단 여백 대폭 축소 */
+    .block-container {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    /* 2. 헤드라인(h1) 제목 크기 및 하단 여백 축소 */
+    h1 {
+        font-size: 1.8rem !important;
+        padding-bottom: 0rem !important;
+    }
+    
+    /* 3. 설명 줄(p) 여백 축소 */
+    p {
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* 4. Streamlit이 생성하는 iframe(지도 렌더링 영역)의 높이를 화면의 85%로 설정 */
     iframe {
-        height: 80vh !important; 
+        height: 85vh !important; 
         min-height: 600px;
     }
 </style>
