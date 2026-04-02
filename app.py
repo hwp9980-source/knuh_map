@@ -10,9 +10,9 @@ st.markdown("강원대학교병원이 상급종합병원으로 추가 지정될 
 # 웹 브라우저 창 크기에 맞춰 지도가 반응형으로 늘어나도록 CSS 주입
 st.markdown("""
 <style>
-    /* 1. Streamlit 기본 상하단 여백 대폭 축소 */
+    /* 1. Streamlit 기본 상하단 여백 대폭 축소 (윗부분 잘림 방지를 위해 상단 여백 3.5rem 확보) */
     .block-container {
-        padding-top: 1.5rem !important;
+        padding-top: 3.5rem !important;
         padding-bottom: 1rem !important;
     }
     
