@@ -693,16 +693,16 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
   background:rgba(255,255,255,.97);
   border-radius:12px;
   box-shadow:0 2px 16px rgba(0,0,0,.18);
-  width:186px;
-  overflow:hidden;
+  width:140px;
+  overflow:visible;
   border:1px solid rgba(28,66,155,.12);
 }
 #panel-left-header{
   background:linear-gradient(135deg,#1C429B,#2256c7);
-  color:#fff;font-size:11px;font-weight:700;
-  padding:7px 12px;letter-spacing:.3px;
+  color:#fff;font-size:10px;font-weight:700;
+  padding:4px 9px;letter-spacing:.3px;
 }
-#panel-left-body{padding:10px 12px}
+#panel-left-body{padding:5px 9px}
 
 /* ── 오른쪽 패널 (현황) ── */
 #panel-right{
@@ -722,11 +722,11 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 #panel-right-body{padding:10px 12px}
 
 /* ── 범례 공통 ── */
-.legend-section{margin-bottom:10px}
-.legend-title{font-size:9px;font-weight:700;color:#1C429B;text-transform:uppercase;
-  letter-spacing:.5px;margin-bottom:5px;padding-bottom:3px;
+.legend-section{margin-bottom:7px}
+.legend-title{font-size:8px;font-weight:700;color:#1C429B;text-transform:uppercase;
+  letter-spacing:.4px;margin-bottom:3px;padding-bottom:2px;
   border-bottom:1px solid rgba(28,66,155,.15)}
-.legend-row{display:flex;align-items:center;gap:6px;margin-bottom:3px;font-size:10px;color:#333}
+.legend-row{display:flex;align-items:center;gap:4px;margin-bottom:1px;font-size:9px;color:#333}
 .ldot{display:inline-block;width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .hmarker{display:inline-flex;align-items:center;justify-content:center;
   width:14px;height:14px;border-radius:50%;color:#fff;font-weight:700;
@@ -735,24 +735,24 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 /* ── 현황 카드 ── */
 .stat-card{
   background:linear-gradient(135deg,#f0f4ff,#e8f0ff);
-  border-radius:8px;padding:6px 10px;margin-bottom:6px;
+  border-radius:8px;padding:4px 7px;margin-bottom:4px;
   border-left:3px solid #1C429B;
 }
 .stat-card.warning{background:linear-gradient(135deg,#fff5f0,#ffe8e0);border-left-color:#CC0000}
 .stat-card.caution{background:linear-gradient(135deg,#fffbf0,#fff3d6);border-left-color:#FF8C00}
-.stat-label{font-size:9px;color:#666;margin-bottom:2px;font-weight:600;letter-spacing:.3px}
-.stat-value{font-size:14px;font-weight:700;color:#1C429B;line-height:1}
+.stat-label{font-size:7px;color:#666;margin-bottom:1px;font-weight:600;letter-spacing:0;white-space:nowrap;}
+.stat-value{font-size:14px;font-weight:700;color:#1C429B;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .stat-card.warning .stat-value{color:#CC0000}
 .stat-card.caution .stat-value{color:#B35A00}
 
 /* ── 커버리지 토글 ── */
 #cover-toggle{
-  display:flex;align-items:center;gap:6px;
-  padding:7px 0 0;margin-top:6px;
+  display:flex;align-items:center;gap:4px;
+  padding:3px 0 0;margin-top:3px;
   border-top:1px solid rgba(28,66,155,.12);cursor:pointer
 }
 #cover-toggle input{width:14px;height:14px;cursor:pointer;accent-color:#1C429B}
-#cover-toggle label{font-size:10px;color:#444;cursor:pointer;font-weight:500}
+#cover-toggle label{font-size:9px;color:#444;cursor:pointer;font-weight:500}
 
 /* ── 리셋 버튼 ── */
 #btn-reset{
@@ -768,21 +768,22 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 /* ── 지역 필터 탭 ── */
 #region-filter{
-  position:absolute;top:72px;right:10px;left:auto;transform:none;
-  z-index:1000;display:flex;gap:4px;
-  background:rgba(255,255,255,.95);
-  padding:4px 6px;border-radius:12px;
-  box-shadow:0 2px 12px rgba(0,0,0,.18);
-  border:1px solid rgba(28,66,155,.1);
-  max-width:calc(100vw - 220px);flex-wrap:wrap;justify-content:flex-end;
+  position:absolute;right:10px;top:72px;left:auto;transform:none;
+  z-index:1000;
+  display:flex;flex-direction:column;gap:3px;align-items:flex-end;
+  background:none;
+  padding:0;border-radius:0;
+  box-shadow:none;border:none;
+  width:auto;
 }
 .region-btn{
-  padding:3px 7px;border-radius:12px;
+  padding:4px 10px;border-radius:8px;
   border:1.5px solid var(--rc,#1C429B);
   background:color-mix(in srgb, var(--rc,#1C429B) 10%, white);
   font-size:10px;cursor:pointer;font-weight:700;
   color:var(--rc,#1C429B);
   transition:all .18s;font-family:inherit;white-space:nowrap;
+  width:auto;text-align:center;
 }
 .region-btn:hover{
   background:color-mix(in srgb, var(--rc,#1C429B) 22%, white);
@@ -816,7 +817,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
     transform-origin:top left;
   }
 
-  #panel-left{width:200px}
+  #panel-left{width:150px}
   #title-text{font-size:12px}
   #title-badge{display:none}
   .stat-value{font-size:12px}
@@ -824,7 +825,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 }
 @media(max-width:480px){
-  #panel-left{width:186px}
+  #panel-left{width:140px}
   #panel-right{width:156px}
   #title-text{font-size:12px}
   #title-badge{display:none}
@@ -835,13 +836,13 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 /* ── 패널 헤더 토글 버튼 ── */
 .panel-header-btn{
   position:absolute;top:4px;right:6px;
-  background:rgba(255,255,255,.18);border:none;color:#fff;
-  cursor:pointer;font-size:12px;font-weight:700;
-  width:20px;height:20px;border-radius:50%;
+  background:rgba(28,66,155,.12);border:none;color:#1C429B;
+  cursor:pointer;font-size:11px;font-weight:700;
+  width:18px;height:18px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  line-height:1;opacity:.9;z-index:2;
+  line-height:1;opacity:.8;z-index:2;
 }
-.panel-header-btn:hover{opacity:1;background:rgba(255,255,255,.3);}
+.panel-header-btn:hover{opacity:1;background:rgba(28,66,155,.2);}
 #panel-left-header{
   display:flex;align-items:center;
   position:relative;padding-right:28px;
@@ -859,7 +860,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 }
 #filter-restore-btn{
   display:none;
-  position:fixed;top:76px;right:10px;left:auto;transform:none;z-index:1100;
+  position:fixed;top:80px;right:10px;left:auto;transform:none;z-index:1100;
   background:#1C429B;color:#fff;
   border:none;border-radius:8px;
   padding:5px 12px;font-size:10px;font-weight:700;
@@ -877,10 +878,10 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 }
 #region-filter{
   transition:transform .25s ease, opacity .25s ease;
-  transform-origin:bottom center;
+  transform-origin:top right;
 }
 #region-filter.filter-hidden{
-  transform:scale(0.95) translateY(8px);
+  transform:scale(0.95) translateX(8px);
   opacity:0;pointer-events:none;
 }
 </style>
@@ -899,17 +900,22 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 <!-- 왼쪽 패널: 범례 -->
 <div id="panel-left">
-  <div id="panel-left-header">📍 범례 &amp; 접근성 현황<button class="panel-header-btn" onclick="togglePanel()" id="panel-toggle-btn" title="패널 닫기">✕</button></div>
+  <button class="panel-header-btn" onclick="togglePanel()" id="panel-toggle-btn" title="패널 닫기">✕</button>
   <div id="panel-left-body">
 
     <div class="legend-section">
       <div class="legend-title">병원 마커</div>
       <div class="legend-row">
         <span id="knuh-legend-icon" style="display:inline-block;vertical-align:middle;margin-right:4px;flex-shrink:0;"></span>
-        <span><b>강원대학교병원</b><br><span id="knuh-toggle-label" style="font-size:9px;color:#FF6B00;font-weight:600;cursor:pointer;" onclick="toggleKnuhFromLegend()">▶ 클릭하면 신규지정</span></span>
+        <span><b>강원대학교병원</b><br><span id="knuh-toggle-label" style="font-size:9px;color:#FF6B00;font-weight:600;cursor:pointer;" onclick="toggleKnuhFromLegend()">클릭! 신규지정</span></span>
       </div>
       <div class="legend-row">
-        <span class="hmarker" style="background:#1C429B">H</span>
+        <span style="display:inline-flex;position:relative;width:32px;height:16px;flex-shrink:0;vertical-align:middle;">
+          <span class="hmarker" style="background:#1C429B;position:absolute;left:0;">H</span>
+          <span class="hmarker" style="background:#27AE60;position:absolute;left:7px;">H</span>
+          <span class="hmarker" style="background:#E74C3C;position:absolute;left:14px;">H</span>
+          <span class="hmarker" style="background:#E67E22;position:absolute;left:21px;">H</span>
+        </span>
         <span style="color:#555">기존 상급종합병원</span>
       </div>
     </div>
@@ -918,46 +924,46 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
       <div class="legend-title">상종 소요시간 과다지역</div>
       <div class="legend-row">
         <span class="ldot" style="background:#FF8C00"></span>
-        <span style="flex:1">90~120분 <span style="color:#FF8C00">⚠</span></span>
+        <span style="flex:1">90~120분 </span>
         <span id="cnt-90-120" style="font-size:9px;color:#888;text-align:right"></span>
       </div>
       <div class="legend-row">
         <span class="ldot" style="background:#E74C3C"></span>
-        <span style="flex:1">120~150분 <span style="color:#E74C3C">⚠⚠</span></span>
+        <span style="flex:1">120~150분 </span>
         <span id="cnt-120-150" style="font-size:9px;color:#888;text-align:right"></span>
       </div>
       <div class="legend-row">
         <span class="ldot" style="background:#CC0000"></span>
-        <span style="flex:1">150분 이상 <span style="color:#CC0000">⚠⚠⚠</span></span>
+        <span style="flex:1">150분 이상 </span>
         <span id="cnt-150p" style="font-size:9px;color:#888;text-align:right"></span>
       </div>
     </div>
 
-    <div class="legend-section" style="border-top:1px solid rgba(28,66,155,.1);padding-top:6px;margin-top:2px">
+    <div class="legend-section" style="border-top:1px solid rgba(28,66,155,.1);padding-top:4px;margin-top:2px">
       <div class="legend-title">접근성 현황</div>
-      <div style="display:flex;gap:0;margin-bottom:4px">
-        <div class="stat-card" style="flex:1;padding:5px 6px">
+      <div style="display:flex;gap:0;margin-bottom:4px;align-items:stretch;">
+        <div class="stat-card" style="flex:1;min-width:0;padding:3px 4px">
           <div class="stat-label">활성병원</div>
-          <div class="stat-value" id="i-active-val" style="font-size:13px">—</div>
+          <div class="stat-value" id="i-active-val" style="font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
           
         </div>
-        <div class="stat-card warning" style="flex:1;padding:5px 6px">
+        <div class="stat-card warning" style="flex:1;min-width:0;padding:3px 4px">
           <div class="stat-label">취약지역</div>
-          <div class="stat-value" id="i-risk-val" style="font-size:13px">—</div>
+          <div class="stat-value" id="i-risk-val" style="font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
           
         </div>
-        <div class="stat-card caution" style="flex:1;padding:5px 6px">
+        <div class="stat-card caution" style="flex:1;min-width:0;padding:3px 4px">
           <div class="stat-label">취약인구</div>
-          <div class="stat-value" id="i-pop-val" style="font-size:13px">—</div>
+          <div class="stat-value" id="i-pop-val" style="font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
           
         </div>
       </div>
-      <button id="btn-reset" onclick="resetAll()" style="width:100%">↺ 전체 병원 복구</button>
+      <button id="btn-reset" onclick="resetAll()" ondblclick="event.stopPropagation();event.preventDefault();" style="width:100%">↺ 전체 초기화</button>
     </div>
 
     <div id="cover-toggle">
-      <input type="checkbox" id="chk-cover">
-      <label for="chk-cover">병원별 60km 영역 표시</label>
+      <input type="checkbox" id="chk-cover" checked>
+      <label for="chk-cover">60km 반경 표시</label>
     </div>
 
   </div>
@@ -968,8 +974,8 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 <button id="filter-restore-btn" onclick="toggleFilter()" title="지역 필터 열기">🗺 지역선택</button>
 
 <div id="region-filter">
-  <button id="filter-toggle-btn" onclick="toggleFilter()" title="필터 닫기" style="position:absolute;top:-8px;right:-8px;width:18px;height:18px;border-radius:50%;background:#888;border:none;color:#fff;font-size:10px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;padding:0;">✕</button>
-  <button class="region-btn active" data-color="#1C429B" onclick="filterRegion('all',this)" style="--rc:#1C429B;">전체</button>
+  <button id="filter-toggle-btn" onclick="toggleFilter()" title="필터 닫기" style="align-self:flex-end;background:none;border:none;color:#999;font-size:11px;cursor:pointer;padding:0 2px;line-height:1;font-weight:700;">✕</button>
+  <button class="region-btn active" data-color="#1C429B" onclick="filterRegion('all',this)" style="--rc:#1C429B;">전국</button>
   <button class="region-btn" data-color="#27AE60" onclick="filterRegion('강원',this)" style="--rc:#27AE60;">강원</button>
   <button class="region-btn" data-color="#2E6DB4" onclick="filterRegion('경기/인천',this)" style="--rc:#2E6DB4;">경기·인천</button>
   <button class="region-btn" data-color="#8E44AD" onclick="filterRegion('충북',this)" style="--rc:#8E44AD;">충북</button>
@@ -996,7 +1002,7 @@ var knuhEmblem="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0
 var LOCS  = [{"name":"태백시","lat":37.1662,"lon":128.9858,"pop":44000,"est":132.7,"nearest":"강릉아산병원","osrm":{"knuh":207.0,"gangneung":115.0,"wonju":168.0,"kyunghee":258.0,"anam":263.0,"chungbuk":223.0}},{"name":"정선군","lat":37.3796,"lon":128.6601,"pop":37000,"est":94.0,"nearest":"강릉아산병원","osrm":{"knuh":166.0,"gangneung":105.0,"wonju":128.0,"kyunghee":197.0,"anam":201.0,"chungbuk":204.0}},{"name":"영월군","lat":37.1836,"lon":128.4616,"pop":39000,"est":98.5,"nearest":"원주세브란스기독병원","osrm":{"knuh":130.0,"gangneung":141.0,"wonju":92.0,"kyunghee":163.0,"anam":168.0,"chungbuk":141.0}},{"name":"평창군","lat":37.3704,"lon":128.3914,"pop":43000,"est":79.2,"nearest":"강릉아산병원","osrm":{"knuh":136.0,"gangneung":98.0,"wonju":98.0,"kyunghee":166.0,"anam":171.0,"chungbuk":172.0}},{"name":"횡성군","lat":37.4901,"lon":127.9857,"pop":46000,"est":19.3,"nearest":"원주세브란스기독병원","osrm":{"knuh":47.0,"gangneung":98.0,"wonju":36.0,"kyunghee":103.0,"anam":108.0,"chungbuk":114.0}},{"name":"인제군","lat":38.0691,"lon":128.1708,"pop":33000,"est":149.8,"nearest":"강원대학교병원","osrm":{"knuh":88.0,"gangneung":113.0,"wonju":127.0,"kyunghee":140.0,"anam":145.0,"chungbuk":198.0}},{"name":"양구군","lat":38.1065,"lon":127.9888,"pop":24000,"est":173.5,"nearest":"강원대학교병원","osrm":{"knuh":75.0,"gangneung":144.0,"wonju":138.0,"kyunghee":151.0,"anam":156.0,"chungbuk":209.0}},{"name":"화천군","lat":38.1062,"lon":127.7082,"pop":25000,"est":166.1,"nearest":"강원대학교병원","osrm":{"knuh":62.0,"gangneung":169.0,"wonju":126.0,"kyunghee":139.0,"anam":143.0,"chungbuk":196.0}},{"name":"철원군","lat":38.1469,"lon":127.3136,"pop":44000,"est":76.5,"nearest":"경희대학교병원","osrm":{"knuh":80.0,"gangneung":211.0,"wonju":151.0,"kyunghee":100.0,"anam":100.0,"chungbuk":179.0},"region":"강원"},{"name":"고성군(강원)","lat":38.3803,"lon":128.467,"pop":28000,"est":163.2,"nearest":"강릉아산병원","osrm":{"knuh":138.0,"gangneung":104.0,"wonju":176.0,"kyunghee":189.0,"anam":194.0,"chungbuk":251.0}},{"name":"양양군","lat":38.0734,"lon":128.6193,"pop":28000,"est":89.6,"nearest":"강릉아산병원","osrm":{"knuh":84.0,"gangneung":52.0,"wonju":124.0,"kyunghee":136.0,"anam":140.0,"chungbuk":198.0}},{"name":"홍천군","lat":37.6964,"lon":127.8882,"pop":71000,"est":81.2,"nearest":"강원대학교병원","osrm":{"knuh":34.0,"gangneung":110.0,"wonju":62.0,"kyunghee":90.0,"anam":94.0,"chungbuk":133.0}},{"name":"춘천시","lat":37.8813,"lon":127.7298,"pop":287000,"est":73.0,"nearest":"강원대학교병원","osrm":{"knuh":10.0,"gangneung":null,"wonju":86.0,"kyunghee":103.0,"anam":107.0,"chungbuk":156.0}},{"name":"속초시","lat":38.207,"lon":128.5918,"pop":83000,"est":67.0,"nearest":"강릉아산병원","osrm":{"knuh":106.0,"gangneung":72.0,"wonju":144.0,"kyunghee":157.0,"anam":162.0,"chungbuk":219.0}},{"name":"삼척시","lat":37.4498,"lon":129.1651,"pop":64000,"est":46.8,"nearest":"강릉아산병원","osrm":{"knuh":150.0,"gangneung":58.0,"wonju":135.0,"kyunghee":202.0,"anam":206.0,"chungbuk":214.0}},{"name":"동해시","lat":37.524,"lon":129.1141,"pop":90000,"est":36.0,"nearest":"강릉아산병원","osrm":{"knuh":139.0,"gangneung":48.0,"wonju":124.0,"kyunghee":191.0,"anam":196.0,"chungbuk":203.0}},{"name":"제천시","lat":37.1325,"lon":128.1937,"pop":134000,"est":36.5,"nearest":"원주세브란스기독병원","osrm":{"wonju":50.2,"knuh":87.9,"chungbuk":99.5,"dku":109.1,"gangneung":125.9}},{"name":"단양군","lat":36.9847,"lon":128.3654,"pop":30000,"est":62.4,"nearest":"원주세브란스기독병원","osrm":{"wonju":75.9,"chungbuk":116.1,"knuh":113.4,"dku":125.7,"gangneung":151.4}},{"name":"괴산군","lat":36.816,"lon":127.7875,"pop":39000,"est":40.8,"nearest":"충북대학교병원","osrm":{"chungbuk":66.3,"dku":88.3,"wonju":113.4,"konyang":120.0,"cnuh":103.5}},{"name":"옥천군","lat":36.3066,"lon":127.5714,"pop":51000,"est":20.0,"nearest":"충남대학교병원","osrm":{"cnuh":39.7,"konyang":41.8,"chungbuk":52.0,"dku":69.7}},{"name":"영동군","lat":36.1751,"lon":127.7787,"pop":49000,"est":46.7,"nearest":"충남대학교병원","osrm":{"cnuh":74.8,"konyang":77.0,"chungbuk":87.1,"jbuh":122.3}},{"name":"서산시","lat":36.785,"lon":126.4503,"pop":175000,"est":72.7,"nearest":"단국대학교병원","osrm":{"dku":97.2,"cnuh":112.5,"konyang":120.8,"sch_bc":106.2}},{"name":"태안군","lat":36.7455,"lon":126.2981,"pop":65000,"est":88.9,"nearest":"단국대학교병원","osrm":{"dku":124.1,"cnuh":139.4,"konyang":147.7}},{"name":"홍성군","lat":36.6012,"lon":126.6612,"pop":102000,"est":59.9,"nearest":"단국대학교병원","osrm":{"dku":90.8,"cnuh":96.8,"konyang":105.1}},{"name":"무주군","lat":35.9071,"lon":127.6609,"pop":25000,"est":98.6,"nearest":"충북대학교병원","osrm":{"jbuh":96.4,"wku":111.3,"chungbuk":94.6,"keimyung":132.8}},{"name":"장수군","lat":35.6481,"lon":127.5209,"pop":22000,"est":85.0,"nearest":"전북대학교병원","osrm":{"jbuh":74.6,"wku":89.5,"gnu":93.5,"cnuh2":102.3}},{"name":"진안군","lat":35.7907,"lon":127.4244,"pop":26000,"est":55.7,"nearest":"전북대학교병원","osrm":{"jbuh":53.4,"wku":68.3,"chungbuk":115.6}},{"name":"신안군","lat":34.8279,"lon":126.1072,"pop":39000,"est":95.1,"nearest":"전남대학교병원","osrm":{"cnuh2":128.2,"hwasun":136.1,"chosun":132.5,"wku":181.6}},{"name":"진도군","lat":34.4862,"lon":126.2636,"pop":29000,"est":106.6,"nearest":"전남대학교병원","osrm":{"hwasun":162.7,"cnuh2":153.2,"chosun":157.5}},{"name":"완도군","lat":34.31,"lon":126.7553,"pop":51000,"est":100.1,"nearest":"화순전남대학교병원","osrm":{"hwasun":163.0,"cnuh2":186.6,"chosun":181.2}},{"name":"해남군","lat":34.5739,"lon":126.599,"pop":72000,"est":75.2,"nearest":"화순전남대학교병원","osrm":{"hwasun":114.9,"cnuh2":133.3,"chosun":133.1}},{"name":"고흥군","lat":34.6079,"lon":127.278,"pop":65000,"est":66.3,"nearest":"화순전남대학교병원","osrm":{"hwasun":113.2,"cnuh2":138.6,"gnu":123.9,"dongah":190.8}},{"name":"울진군","lat":36.9935,"lon":129.4,"pop":47000,"est":109.6,"nearest":"강릉아산병원","osrm":{"chilgok":234.5,"knuch":214.5,"gangneung":137.1,"uuh":210.9}},{"name":"봉화군","lat":36.8933,"lon":128.7323,"pop":31000,"est":173.8,"nearest":"원주세브란스기독병원","osrm":{"knuch":125.9,"chilgok":139.1,"wonju":113.9,"knuh":151.4,"gangneung":189.5}},{"name":"영양군","lat":36.6667,"lon":129.1126,"pop":16000,"est":189.0,"nearest":"경북대학교병원","osrm":{"chilgok":144.8,"knuch":131.5,"uuh":151.1}},{"name":"청송군","lat":36.4352,"lon":129.0572,"pop":24000,"est":142.2,"nearest":"경북대학교병원","osrm":{"chilgok":106.7,"knuch":93.4,"uuh":124.8}},{"name":"영덕군","lat":36.4154,"lon":129.3651,"pop":36000,"est":104.2,"nearest":"울산대학교병원","osrm":{"chilgok":131.6,"knuch":109.4,"uuh":105.9,"pnu":161.6}},{"name":"포항시","lat":36.019,"lon":129.3435,"pop":506000,"est":61.1,"nearest":"울산대학교병원","osrm":{"uuh":63.6,"knuch":74.6,"chilgok":104.6,"yangsan":100.0,"pnu":119.3}},{"name":"울릉군","lat":37.4845,"lon":130.9057,"pop":10000,"est":207.1,"nearest":"강릉아산병원","osrm":{"gangneung":213.6,"uuh":292.4,"wonju":289.7,"chilgok":327.9}},{"name":"합천군","lat":35.5657,"lon":128.1655,"pop":46000,"est":88.3,"nearest":"계명대 동산병원","osrm":{"keimyung":66.2,"gnu":73.9,"scwh":109.5,"dcuh":73.8}},{"name":"거창군","lat":35.6879,"lon":127.9097,"pop":63000,"est":112.9,"nearest":"계명대 동산병원","osrm":{"keimyung":66.9,"gnu":79.0,"jbuh":102.5,"dcuh":74.6}},{"name":"함양군","lat":35.5205,"lon":127.7251,"pop":41000,"est":105.4,"nearest":"경상국립대학교병원","osrm":{"gnu":67.4,"jbuh":91.7,"keimyung":86.5,"cnuh2":87.3}},{"name":"산청군","lat":35.4149,"lon":127.8733,"pop":34000,"est":69.5,"nearest":"경상국립대학교병원","osrm":{"gnu":50.5,"keimyung":90.6,"cnuh2":95.6,"dongah":117.4}},{"name":"남해군","lat":34.8377,"lon":127.8921,"pop":42000,"est":48.2,"nearest":"경상국립대학교병원","osrm":{"gnu":71.1,"cnuh2":120.2,"dongah":138.0,"kosin":140.4}},{"name":"제주시","lat":33.4996,"lon":126.5312,"pop":480000,"est":207.0,"nearest":"화순전남대학교병원","osrm":{"hwasun":352.3,"chosun":370.6,"cnuh2":377.8,"gnu":396.2}},{"name":"서귀포시","lat":33.2541,"lon":126.56,"pop":187000,"est":237.3,"nearest":"화순전남대학교병원","osrm":{"hwasun":370.7,"chosun":388.9,"cnuh2":396.1,"gnu":414.6}},{"name":"구례군","lat":35.2026,"lon":127.462,"pop":27000,"est":93.7,"nearest":"전남대학교병원","osrm":{"cnuh2":78.4,"hwasun":94.9,"jbuh":90.9,"gnu":82.6}},{"name":"곡성군","lat":35.2823,"lon":127.2929,"pop":28000,"est":75.0,"nearest":"전남대학교병원","osrm":{"cnuh2":53.6,"hwasun":70.1,"jbuh":84.5,"chosun":57.8}},{"name":"수원시","lat":37.2636,"lon":127.0286,"pop":1191000,"est":2.6,"nearest":"아주대학교병원","osrm":{"ajou":11.4,"svh":15.6,"bundang":38.5,"hallym":44.2}},{"name":"고양시","lat":37.6564,"lon":126.8351,"pop":1074000,"est":16.8,"nearest":"이화여자대학교 목동병원","osrm":{"sev":41.3,"kbsh":40.3,"ewha":39.7,"snuh":51.4}},{"name":"용인시","lat":37.2411,"lon":127.1775,"pop":1086000,"est":15.2,"nearest":"아주대학교병원","osrm":{"ajou":29.2,"bundang":39.9,"svh":37.7,"hallym":49.9}},{"name":"성남시","lat":37.4196,"lon":127.1268,"pop":924000,"est":8.7,"nearest":"분당서울대학교병원","osrm":{"bundang":26.6,"smc":29.9,"gnsev":27.5,"asan_seoul":37.4}},{"name":"부천시","lat":37.5034,"lon":126.766,"pop":809000,"est":0.2,"nearest":"순천향대 부천병원","osrm":{"sch_bc":3.7,"gil":31.7,"ewha":27.0,"icsmh":33.6}},{"name":"화성시","lat":37.1996,"lon":126.8314,"pop":946000,"est":15.9,"nearest":"고려대 안산병원","osrm":{"ansan":36.5,"svh":47.6,"ajou":45.9,"hallym":41.9}},{"name":"안산시","lat":37.3219,"lon":126.8309,"pop":639000,"est":0.7,"nearest":"고려대 안산병원","osrm":{"ansan":3.3,"hallym":36.2,"svh":45.6,"gil":41.3}},{"name":"남양주시","lat":37.6358,"lon":127.2148,"pop":733000,"est":18.4,"nearest":"건국대학교병원","osrm":{"kyunghee":42.0,"asan_seoul":37.9,"konkuk":37.0,"anam":42.1}},{"name":"안양시","lat":37.3943,"lon":126.9568,"pop":543000,"est":0.0,"nearest":"한림대 성심병원","osrm":{"hallym":1.7,"svh":32.4,"cau":39.8,"smh":34.4}},{"name":"평택시","lat":36.9921,"lon":127.1128,"pop":573000,"est":19.3,"nearest":"단국대학교병원","osrm":{"dku":32.2,"ajou":50.6,"svh":57.0,"bundang":65.5}},{"name":"시흥시","lat":37.38,"lon":126.803,"pop":508000,"est":8.9,"nearest":"고려대 안산병원","osrm":{"ansan":25.5,"gil":29.6,"hallym":29.8,"sch_bc":36.5}},{"name":"파주시","lat":37.7601,"lon":126.78,"pop":490000,"est":31.4,"nearest":"이화여자대학교 목동병원","osrm":{"sev":45.7,"kbsh":50.1,"ewha":44.3,"snuh":63.7}},{"name":"의정부시","lat":37.7382,"lon":127.0338,"pop":450000,"est":20.0,"nearest":"경희대학교병원","osrm":{"kyunghee":39.3,"anam":44.7,"snuh":50.9,"kbsh":59.0}},{"name":"김포시","lat":37.615,"lon":126.7156,"pop":488000,"est":16.0,"nearest":"순천향대 부천병원","osrm":{"sch_bc":34.0,"icsmh":46.1,"ewha":42.3,"gil":48.8}},{"name":"광주시","lat":37.4296,"lon":127.2556,"pop":381000,"est":17.2,"nearest":"서울아산병원","osrm":{"bundang":41.9,"smc":41.4,"asan_seoul":38.8,"gnsev":44.9}},{"name":"하남시","lat":37.5392,"lon":127.2149,"pop":305000,"est":11.4,"nearest":"서울아산병원","osrm":{"asan_seoul":30.4,"konkuk":33.3,"smc":34.0,"gnsev":37.4}},{"name":"오산시","lat":37.1498,"lon":127.0771,"pop":230000,"est":17.7,"nearest":"아주대학교병원","osrm":{"ajou":32.7,"svh":39.1,"bundang":47.3,"ansan":58.4}},{"name":"광명시","lat":37.4784,"lon":126.864,"pop":292000,"est":3.4,"nearest":"고려대학교 구로병원","osrm":{"guro":10.0,"ewha":18.3,"cau":30.4,"sch_bc":29.3}},{"name":"군포시","lat":37.3617,"lon":126.9352,"pop":263000,"est":4.9,"nearest":"한림대 성심병원","osrm":{"hallym":19.0,"svh":30.1,"ansan":32.8,"ajou":35.2}},{"name":"이천시","lat":37.272,"lon":127.4352,"pop":229000,"est":34.9,"nearest":"아주대학교병원","osrm":{"bundang":67.4,"ajou":60.3,"svh":62.1,"smc":67.9}},{"name":"안성시","lat":37.0078,"lon":127.2797,"pop":193000,"est":25.1,"nearest":"단국대학교병원","osrm":{"dku":47.2,"ajou":61.1,"svh":62.9,"bundang":64.8}},{"name":"구리시","lat":37.5941,"lon":127.1296,"pop":188000,"est":8.3,"nearest":"건국대학교병원","osrm":{"kyunghee":24.4,"konkuk":22.1,"asan_seoul":23.5,"hanyang":29.0}},{"name":"양주시","lat":37.7853,"lon":127.0458,"pop":240000,"est":26.2,"nearest":"경희대학교병원","osrm":{"kyunghee":48.9,"anam":55.5,"snuh":61.7,"kbsh":68.7}},{"name":"포천시","lat":37.8945,"lon":127.2003,"pop":145000,"est":43.7,"nearest":"경희대학교병원","osrm":{"kyunghee":55.1,"anam":55.6,"snuh":61.8,"hanyang":58.2}},{"name":"의왕시","lat":37.3444,"lon":126.9687,"pop":155000,"est":6.8,"nearest":"성빈센트병원","osrm":{"hallym":18.5,"svh":18.0,"ajou":24.2,"ansan":33.8}},{"name":"여주시","lat":37.2982,"lon":127.6377,"pop":113000,"est":34.1,"nearest":"원주세브란스기독병원","osrm":{"wonju":54.9,"bundang":70.3,"ajou":63.3,"smc":73.2}},{"name":"동두천시","lat":37.9035,"lon":127.0607,"pop":88000,"est":41.9,"nearest":"경희대학교병원","osrm":{"kyunghee":69.3,"anam":69.8,"snuh":76.0,"kbsh":82.9}},{"name":"과천시","lat":37.4296,"lon":126.9878,"pop":69000,"est":5.8,"nearest":"한림대 성심병원","osrm":{"hallym":14.8,"smh":24.5,"cau":28.9,"gnsev":24.0}},{"name":"양평군","lat":37.4913,"lon":127.4876,"pop":118000,"est":40.4,"nearest":"서울아산병원","osrm":{"asan_seoul":55.5,"smc":68.1,"bundang":76.2,"konkuk":58.5}},{"name":"가평군","lat":37.8315,"lon":127.5099,"pop":64000,"est":23.9,"nearest":"강원대학교병원","osrm":{"knuh":46.5,"kyunghee":84.8,"asan_seoul":74.0,"konkuk":76.9}},{"name":"연천군","lat":38.0963,"lon":127.0749,"pop":41000,"est":67.7,"nearest":"경희대학교병원","osrm":{"kyunghee":97.7,"anam":98.2,"snuh":104.4,"kbsh":111.3},"region":"경기/인천"},{"name":"강릉시","lat":37.7519,"lon":128.876,"pop":209000,"est":2.7,"nearest":"강릉아산병원","osrm":{"gangneung":8.9,"wonju":99.9,"knuh":115.4,"asan_seoul":156.1}},{"name":"원주시","lat":37.3422,"lon":127.9201,"pop":357000,"est":3.6,"nearest":"원주세브란스기독병원","osrm":{"wonju":14.8,"knuh":67.5,"bundang":94.3,"asan_seoul":90.8}},{"name":"청주시","lat":36.6424,"lon":127.489,"pop":856000,"est":3.2,"nearest":"충북대학교병원","osrm":{"chungbuk":11.8,"cnuh":64.9,"konyang":81.4,"dku":67.7}},{"name":"충주시","lat":36.991,"lon":127.9259,"pop":207000,"est":46.9,"nearest":"원주세브란스기독병원","osrm":{"wonju":74.8,"chungbuk":89.5,"dku":99.1,"bundang":107.2}},{"name":"음성군","lat":36.94,"lon":127.4503,"pop":99000,"est":34.1,"nearest":"충북대학교병원","osrm":{"dku":55.3,"chungbuk":47.3,"ajou":65.9,"bundang":73.9}},{"name":"진천군","lat":36.8559,"lon":127.4354,"pop":90000,"est":29.1,"nearest":"충북대학교병원","osrm":{"chungbuk":44.3,"dku":58.0,"cnuh":73.2,"ajou":78.4}},{"name":"증평군","lat":36.7851,"lon":127.5817,"pop":36000,"est":23.5,"nearest":"충북대학교병원","osrm":{"chungbuk":42.3,"dku":56.0,"cnuh":71.2,"konyang":87.6}},{"name":"보은군","lat":36.4895,"lon":127.7298,"pop":32000,"est":35.1,"nearest":"충북대학교병원","osrm":{"chungbuk":53.2,"cnuh":67.3,"konyang":83.8,"dku":70.9}},{"name":"천안시","lat":36.8151,"lon":127.1139,"pop":664000,"est":6.2,"nearest":"단국대학교병원","osrm":{"dku":19.4,"chungbuk":64.0,"ajou":71.7,"svh":78.2}},{"name":"아산시","lat":36.7896,"lon":127.0025,"pop":340000,"est":17.8,"nearest":"단국대학교병원","osrm":{"dku":39.3,"chungbuk":62.6,"ajou":82.3,"svh":83.9}},{"name":"당진시","lat":36.8933,"lon":126.6298,"pop":169000,"est":55.9,"nearest":"고려대 안산병원","osrm":{"dku":86.7,"ansan":84.2,"ajou":87.0,"svh":88.6}},{"name":"공주시","lat":36.4465,"lon":127.119,"pop":103000,"est":30.4,"nearest":"단국대학교병원","osrm":{"konyang":64.5,"cnuh":56.2,"chungbuk":75.0,"dku":53.7}},{"name":"보령시","lat":36.3331,"lon":126.6128,"pop":99000,"est":63.8,"nearest":"원광대학교병원","osrm":{"wku":86.2,"konyang":129.4,"cnuh":121.1,"jbuh":111.9}},{"name":"논산시","lat":36.1871,"lon":127.0987,"pop":115000,"est":32.7,"nearest":"원광대학교병원","osrm":{"konyang":61.0,"wku":57.1,"cnuh":67.1,"jbuh":62.8}},{"name":"계룡시","lat":36.2742,"lon":127.249,"pop":44000,"est":12.9,"nearest":"건양대학교병원","osrm":{"konyang":33.8,"cnuh":42.4,"wku":62.4,"chungbuk":66.2}},{"name":"서천군","lat":36.0776,"lon":126.6913,"pop":52000,"est":34.9,"nearest":"원광대학교병원","osrm":{"wku":55.8,"jbuh":81.6,"konyang":105.0,"cnuh":96.7}},{"name":"청양군","lat":36.4596,"lon":126.8021,"pop":30000,"est":62.2,"nearest":"원광대학교병원","osrm":{"konyang":105.6,"dku":87.1,"cnuh":97.3,"wku":85.1}},{"name":"부여군","lat":36.2757,"lon":126.9098,"pop":63000,"est":43.2,"nearest":"원광대학교병원","osrm":{"wku":71.0,"konyang":81.1,"cnuh":78.5,"jbuh":75.7}},{"name":"예산군","lat":36.68,"lon":126.8497,"pop":80000,"est":39.5,"nearest":"단국대학교병원","osrm":{"dku":73.9,"chungbuk":97.2,"cnuh":81.1,"konyang":89.4}},{"name":"금산군","lat":36.1091,"lon":127.488,"pop":53000,"est":31.6,"nearest":"건양대학교병원","osrm":{"konyang":52.4,"cnuh":61.7,"jbuh":97.8,"wku":93.0}},{"name":"전주시","lat":35.8242,"lon":127.148,"pop":639000,"est":3.6,"nearest":"전북대학교병원","osrm":{"jbuh":18.3,"wku":61.2,"konyang":84.0,"cnuh":90.1}},{"name":"익산시","lat":35.9482,"lon":126.9578,"pop":268000,"est":2.4,"nearest":"원광대학교병원","osrm":{"wku":8.6,"jbuh":58.7,"konyang":84.8,"cnuh":91.0}},{"name":"군산시","lat":35.9677,"lon":126.7368,"pop":255000,"est":26.0,"nearest":"원광대학교병원","osrm":{"wku":47.7,"jbuh":74.0,"konyang":110.6,"cnuh":105.9}},{"name":"정읍시","lat":35.57,"lon":126.856,"pop":106000,"est":47.4,"nearest":"전남대학교병원","osrm":{"jbuh":67.1,"wku":76.2,"cnuh2":61.3,"chosun":67.4}},{"name":"남원시","lat":35.4162,"lon":127.39,"pop":78000,"est":61.8,"nearest":"전남대학교병원","osrm":{"cnuh2":57.6,"chosun":61.7,"jbuh":72.6,"hwasun":74.1}},{"name":"김제시","lat":35.8035,"lon":126.8807,"pop":82000,"est":23.0,"nearest":"원광대학교병원","osrm":{"wku":50.9,"jbuh":63.1,"konyang":94.9,"cnuh2":90.8}},{"name":"완주군","lat":35.9048,"lon":127.162,"pop":101000,"est":8.4,"nearest":"전북대학교병원","osrm":{"jbuh":25.3,"wku":44.0,"konyang":66.8,"cnuh":72.9}},{"name":"고창군","lat":35.4356,"lon":126.7021,"pop":57000,"est":43.6,"nearest":"전남대학교병원","osrm":{"cnuh2":52.4,"chosun":56.5,"hwasun":68.9,"jbuh":91.3}},{"name":"부안군","lat":35.7298,"lon":126.7333,"pop":51000,"est":40.2,"nearest":"원광대학교병원","osrm":{"wku":63.3,"jbuh":73.5,"cnuh2":79.9,"chosun":84.1}},{"name":"순창군","lat":35.3747,"lon":127.1375,"pop":28000,"est":37.4,"nearest":"전남대학교병원","osrm":{"cnuh2":39.4,"chosun":43.5,"hwasun":55.9,"jbuh":78.4}},{"name":"임실군","lat":35.6176,"lon":127.2892,"pop":28000,"est":35.2,"nearest":"전북대학교병원","osrm":{"jbuh":49.4,"wku":68.8,"cnuh2":70.9,"chosun":75.0}},{"name":"여수시","lat":34.7604,"lon":127.6622,"pop":270000,"est":72.8,"nearest":"경상국립대학교병원","osrm":{"gnu":100.2,"hwasun":115.8,"chosun":119.0,"cnuh2":114.9}},{"name":"순천시","lat":34.9506,"lon":127.4872,"pop":283000,"est":56.8,"nearest":"경상국립대학교병원","osrm":{"hwasun":89.2,"chosun":80.6,"cnuh2":76.5,"gnu":75.1}},{"name":"목포시","lat":34.8118,"lon":126.3922,"pop":213000,"est":73.0,"nearest":"전남대학교병원","osrm":{"chosun":89.5,"hwasun":93.1,"cnuh2":85.2,"jbuh":148.2}},{"name":"나주시","lat":35.016,"lon":126.7107,"pop":101000,"est":28.8,"nearest":"화순전남대학교병원","osrm":{"chosun":56.8,"cnuh2":58.6,"hwasun":55.4,"jbuh":124.2}},{"name":"광양시","lat":34.9436,"lon":127.6959,"pop":153000,"est":53.6,"nearest":"경상국립대학교병원","osrm":{"gnu":61.1,"hwasun":98.2,"chosun":89.6,"cnuh2":85.5}},{"name":"담양군","lat":35.3215,"lon":126.988,"pop":47000,"est":22.9,"nearest":"전남대학교병원","osrm":{"cnuh2":31.8,"chosun":35.9,"hwasun":48.3,"jbuh":94.8}},{"name":"함평군","lat":35.0648,"lon":126.5168,"pop":32000,"est":45.5,"nearest":"전남대학교병원","osrm":{"cnuh2":57.5,"chosun":61.8,"hwasun":65.3,"jbuh":123.1}},{"name":"영광군","lat":35.2778,"lon":126.5122,"pop":52000,"est":46.8,"nearest":"전남대학교병원","osrm":{"cnuh2":66.4,"chosun":70.5,"hwasun":82.9,"jbuh":108.4}},{"name":"장성군","lat":35.3021,"lon":126.7847,"pop":46000,"est":23.8,"nearest":"전남대학교병원","osrm":{"cnuh2":36.4,"chosun":42.9,"hwasun":55.8,"jbuh":82.6}},{"name":"화순군","lat":35.0647,"lon":126.9866,"pop":64000,"est":0.1,"nearest":"화순전남대학교병원","osrm":{"hwasun":1.1,"chosun":24.3,"cnuh2":31.5,"jbuh":123.0}},{"name":"보성군","lat":34.7712,"lon":127.0805,"pop":40000,"est":40.4,"nearest":"화순전남대학교병원","osrm":{"hwasun":60.2,"chosun":78.4,"cnuh2":85.6,"gnu":106.9}},{"name":"장흥군","lat":34.6816,"lon":126.9076,"pop":37000,"est":51.8,"nearest":"화순전남대학교병원","osrm":{"hwasun":73.1,"chosun":91.3,"cnuh2":98.6,"gnu":117.0}},{"name":"강진군","lat":34.6416,"lon":126.7667,"pop":32000,"est":61.3,"nearest":"화순전남대학교병원","osrm":{"hwasun":93.9,"chosun":112.1,"cnuh2":112.3,"gnu":137.8}},{"name":"영암군","lat":34.8003,"lon":126.6963,"pop":57000,"est":47.4,"nearest":"화순전남대학교병원","osrm":{"hwasun":87.6,"chosun":88.9,"cnuh2":90.8,"jbuh":160.0}},{"name":"무안군","lat":34.99,"lon":126.4816,"pop":85000,"est":52.4,"nearest":"전남대학교병원","osrm":{"chosun":68.4,"cnuh2":64.1,"hwasun":72.0,"jbuh":127.1}},{"name":"구미시","lat":36.1196,"lon":128.3441,"pop":400000,"est":25.4,"nearest":"계명대 동산병원","osrm":{"chilgok":49.9,"keimyung":39.9,"knuch":45.8,"dcuh":52.9}},{"name":"경주시","lat":35.8562,"lon":129.2246,"pop":251000,"est":41.2,"nearest":"울산대학교병원","osrm":{"uuh":49.3,"ynu":78.1,"dcuh":79.5,"knuch":72.7}},{"name":"안동시","lat":36.5684,"lon":128.7294,"pop":155000,"est":80.9,"nearest":"경북대학교병원","osrm":{"chilgok":109.6,"knuch":96.4,"dcuh":104.7,"ynu":110.0}},{"name":"경산시","lat":35.8252,"lon":128.7413,"pop":265000,"est":12.5,"nearest":"영남대학교병원","osrm":{"ynu":31.7,"dcuh":42.1,"knuch":44.0,"keimyung":52.9}},{"name":"김천시","lat":36.1398,"lon":128.1136,"pop":137000,"est":47.7,"nearest":"계명대 동산병원","osrm":{"chilgok":70.8,"keimyung":60.8,"knuch":66.7,"dcuh":73.8}},{"name":"상주시","lat":36.4108,"lon":128.1591,"pop":97000,"est":68.2,"nearest":"계명대 동산병원","osrm":{"chilgok":84.8,"chungbuk":98.1,"keimyung":74.8,"knuch":80.7}},{"name":"문경시","lat":36.5865,"lon":128.1866,"pop":69000,"est":78.2,"nearest":"칠곡경북대학교병원","osrm":{"chungbuk":111.6,"chilgok":91.7,"cnuh":127.5,"konyang":129.6}},{"name":"의성군","lat":36.3526,"lon":128.6972,"pop":51000,"est":52.6,"nearest":"경북대학교병원","osrm":{"chilgok":89.6,"knuch":76.3,"dcuh":84.6,"ynu":90.0}},{"name":"군위군","lat":36.2395,"lon":128.5722,"pop":23000,"est":34.2,"nearest":"계명대 동산병원","osrm":{"chilgok":64.4,"knuch":51.2,"dcuh":59.4,"keimyung":49.6}},{"name":"성주군","lat":35.9191,"lon":128.2829,"pop":44000,"est":23.9,"nearest":"계명대 동산병원","osrm":{"keimyung":34.2,"chilgok":50.2,"knuch":49.8,"dcuh":58.0}},{"name":"칠곡군","lat":35.9952,"lon":128.4018,"pop":119000,"est":12.1,"nearest":"계명대 동산병원","osrm":{"chilgok":34.7,"keimyung":28.4,"knuch":34.3,"dcuh":41.4}},{"name":"고령군","lat":35.7274,"lon":128.2639,"pop":33000,"est":29.5,"nearest":"계명대 동산병원","osrm":{"keimyung":47.7,"knuch":50.0,"dcuh":55.3,"ynu":61.0}},{"name":"예천군","lat":36.6548,"lon":128.452,"pop":56000,"est":89.3,"nearest":"경북대학교병원","osrm":{"chilgok":112.2,"knuch":99.0,"wonju":105.5,"chungbuk":145.7}},{"name":"영주시","lat":36.8057,"lon":128.6241,"pop":101000,"est":101.1,"nearest":"원주세브란스기독병원","osrm":{"wonju":91.3,"chilgok":114.3,"knuch":101.1,"dcuh":109.4}},{"name":"창원시","lat":35.2279,"lon":128.6811,"pop":1020000,"est":0.8,"nearest":"삼성창원병원","osrm":{"scwh":2.4,"dongah":56.7,"kosin":59.0,"yangsan":61.9}},{"name":"진주시","lat":35.1799,"lon":128.1076,"pop":340000,"est":1.4,"nearest":"경상국립대학교병원","osrm":{"gnu":3.9,"scwh":70.3,"dongah":90.7,"kosin":93.0}},{"name":"김해시","lat":35.228,"lon":128.8893,"pop":538000,"est":18.9,"nearest":"양산부산대학교병원","osrm":{"dongah":35.6,"kosin":37.9,"yangsan":32.4,"pnu":38.2}},{"name":"통영시","lat":34.8544,"lon":128.4335,"pop":121000,"est":55.8,"nearest":"경상국립대학교병원","osrm":{"gnu":55.6,"scwh":89.8,"dongah":117.9,"kosin":116.9}},{"name":"사천시","lat":35.0045,"lon":128.0645,"pop":112000,"est":22.6,"nearest":"경상국립대학교병원","osrm":{"gnu":43.7,"scwh":90.2,"dongah":110.7,"kosin":113.0}},{"name":"밀양시","lat":35.5036,"lon":128.746,"pop":102000,"est":36.5,"nearest":"양산부산대학교병원","osrm":{"yangsan":50.0,"scwh":70.3,"ynu":57.1,"dcuh":69.9}},{"name":"고성군(경남)","lat":35.0748,"lon":128.3236,"pop":51000,"est":27.5,"nearest":"경상국립대학교병원","osrm":{"gnu":58.1,"scwh":72.8,"dongah":111.4,"kosin":113.8}},{"name":"하동군","lat":35.0671,"lon":127.7521,"pop":45000,"est":40.5,"nearest":"경상국립대학교병원","osrm":{"gnu":57.1,"hwasun":117.6,"chosun":108.9,"cnuh2":104.8}},{"name":"의령군","lat":35.3224,"lon":128.2614,"pop":27000,"est":26.8,"nearest":"경상국립대학교병원","osrm":{"gnu":44.2,"scwh":57.9,"keimyung":93.4,"ynu":108.4}},{"name":"창녕군","lat":35.5449,"lon":128.4924,"pop":60000,"est":41.2,"nearest":"계명대 동산병원","osrm":{"keimyung":48.8,"ynu":62.1,"dcuh":56.5,"knuch":51.1}},{"name":"함안군","lat":35.2729,"lon":128.406,"pop":67000,"est":30.1,"nearest":"경상국립대학교병원","osrm":{"scwh":43.9,"gnu":38.9,"dongah":64.3,"kosin":66.7}},{"name":"거제시","lat":34.8806,"lon":128.6214,"pop":234000,"est":46.2,"nearest":"고신대 복음병원","osrm":{"scwh":100.3,"kosin":84.2,"dongah":85.2,"inje_bs":98.6}},{"name":"양산시","lat":35.335,"lon":129.037,"pop":365000,"est":2.5,"nearest":"양산부산대학교병원","osrm":{"yangsan":10.3,"pnu":43.8,"inje_bs":46.6,"dongah":41.0}},{"name":"영천시","lat":35.9738,"lon":128.9382,"pop":100000,"est":38.2,"nearest":"경북대학교병원","osrm":{"ynu":59.1,"dcuh":60.5,"knuch":53.7,"chilgok":83.7}},{"name":"청도군","lat":35.6476,"lon":128.734,"pop":43000,"est":27.9,"nearest":"영남대학교병원","osrm":{"ynu":42.1,"dcuh":53.0,"knuch":49.1,"keimyung":57.9}}];
 var HOSPS = [{"hid":"smh","name":"가톨릭대학교 서울성모병원","lat":37.501,"lon":126.9972,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"kbsh","name":"강북삼성병원","lat":37.571,"lon":126.9637,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"konkuk","name":"건국대학교병원","lat":37.5401,"lon":127.0818,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"kyunghee","name":"경희대학교병원","lat":37.5893,"lon":127.0512,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"smc","name":"삼성서울병원","lat":37.4881,"lon":127.0857,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"snuh","name":"서울대학교병원","lat":37.5796,"lon":126.9993,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"asan_seoul","name":"서울아산병원","lat":37.5261,"lon":127.1081,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"guro","name":"고려대학교 구로병원","lat":37.4954,"lon":126.8878,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"anam","name":"고려대학교 안암병원","lat":37.5874,"lon":127.0268,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"ewha","name":"이화여자대학교 목동병원","lat":37.5263,"lon":126.8755,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"sev","name":"연세 세브란스병원","lat":37.562,"lon":126.9409,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"gnsev","name":"강남세브란스병원","lat":37.4888,"lon":127.0633,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"cau","name":"중앙대학교병원","lat":37.5039,"lon":126.9548,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"hanyang","name":"한양대학교병원","lat":37.5554,"lon":127.0446,"color":"#1C429B","is_new":false,"region":"서울"},{"hid":"gil","name":"가천대 길병원","lat":37.4464,"lon":126.7008,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"icsmh","name":"인천성모병원","lat":37.4771,"lon":126.6488,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"svh","name":"성빈센트병원","lat":37.3008,"lon":127.0104,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"sch_bc","name":"순천향대 부천병원","lat":37.5022,"lon":126.766,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"bundang","name":"분당서울대학교병원","lat":37.3548,"lon":127.1234,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"ansan","name":"고려대 안산병원","lat":37.3188,"lon":126.8362,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"inha","name":"인하대학교병원","lat":37.4488,"lon":126.6512,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"ajou","name":"아주대학교병원","lat":37.2796,"lon":127.0428,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"hallym","name":"한림대 성심병원","lat":37.3941,"lon":126.9568,"color":"#2E6DB4","is_new":false,"region":"경기/인천"},{"hid":"gangneung","name":"강릉아산병원","lat":37.7473,"lon":128.9014,"color":"#27AE60","is_new":false,"region":"강원"},{"hid":"wonju","name":"원주세브란스기독병원","lat":37.3421,"lon":127.9538,"color":"#27AE60","is_new":false,"region":"강원"},{"hid":"chungbuk","name":"충북대학교병원","lat":36.6385,"lon":127.4595,"color":"#8E44AD","is_new":false,"region":"충북"},{"hid":"cnuh","name":"충남대학교병원","lat":36.3545,"lon":127.3877,"color":"#7D3C98","is_new":false,"region":"충남/대전"},{"hid":"dku","name":"단국대학교병원","lat":36.8506,"lon":127.1512,"color":"#7D3C98","is_new":false,"region":"충남/대전"},{"hid":"konyang","name":"건양대학교병원","lat":36.3197,"lon":127.3546,"color":"#7D3C98","is_new":false,"region":"충남/대전"},{"hid":"jbuh","name":"전북대학교병원","lat":35.8472,"lon":127.1298,"color":"#E67E22","is_new":false,"region":"전북"},{"hid":"wku","name":"원광대학교병원","lat":35.9568,"lon":126.9776,"color":"#E67E22","is_new":false,"region":"전북"},{"hid":"cnuh2","name":"전남대학교병원","lat":35.1601,"lon":126.917,"color":"#E74C3C","is_new":false,"region":"전남/광주"},{"hid":"hwasun","name":"화순전남대학교병원","lat":35.0641,"lon":126.9862,"color":"#E74C3C","is_new":false,"region":"전남/광주"},{"hid":"chosun","name":"조선대학교병원","lat":35.1424,"lon":126.924,"color":"#E74C3C","is_new":false,"region":"전남/광주"},{"hid":"knuch","name":"경북대학교병원","lat":35.8901,"lon":128.57,"color":"#2980B9","is_new":false,"region":"경북/대구"},{"hid":"chilgok","name":"칠곡경북대학교병원","lat":35.9873,"lon":128.5137,"color":"#2980B9","is_new":false,"region":"경북/대구"},{"hid":"keimyung","name":"계명대 동산병원","lat":35.8536,"lon":128.4882,"color":"#2980B9","is_new":false,"region":"경북/대구"},{"hid":"dcuh","name":"대구가톨릭대학교병원","lat":35.8619,"lon":128.5901,"color":"#2980B9","is_new":false,"region":"경북/대구"},{"hid":"ynu","name":"영남대학교병원","lat":35.838,"lon":128.627,"color":"#2980B9","is_new":false,"region":"경북/대구"},{"hid":"gnu","name":"경상국립대학교병원","lat":35.171,"lon":128.1004,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"dongah","name":"동아대학교병원","lat":35.1038,"lon":128.972,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"pnu","name":"부산대학교병원","lat":35.1533,"lon":129.0619,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"inje_bs","name":"인제대 부산백병원","lat":35.1079,"lon":129.0328,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"kosin","name":"고신대 복음병원","lat":35.0971,"lon":128.9771,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"scwh","name":"삼성창원병원","lat":35.2238,"lon":128.6757,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"yangsan","name":"양산부산대학교병원","lat":35.3399,"lon":129.0147,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"uuh","name":"울산대학교병원","lat":35.5488,"lon":129.2621,"color":"#16A085","is_new":false,"region":"경남/부산/울산"},{"hid":"knuh","name":"강원대학교병원","lat":37.858,"lon":127.734,"color":"#FF6B00","is_new":true,"region":"강원"}];
 var removed = {knuh: true}; // 초기: 강원대병원 신규지정 전 상태
-var coverVisible = false;
+var coverVisible = true;
 
 var map = L.map('map', {zoomControl:true, doubleClickZoom:false});
 
@@ -1217,8 +1223,52 @@ function rebuildRisk() {
   if(el3) el3.textContent = cnt3 ? cnt3+'개 / '+fmtPop(pop3) : '';
 
   document.getElementById('i-active-val').textContent = act;
+
+  // 증감 표시
+  var prevRisk = parseInt(document.getElementById('i-risk-val').textContent) || 0;
+  var prevPopEl = document.getElementById('i-pop-val').textContent;
+  var prevPop = _prevRiskPop || 0;
+  var deltaRisk = riskCnt - prevRisk;
+  var deltaPop  = riskPop - prevPop;
+  _prevRiskPop = riskPop;
+
   document.getElementById('i-risk-val').textContent = riskCnt;
   document.getElementById('i-pop-val').textContent = popS;
+
+  if (deltaRisk !== 0 || deltaPop !== 0) {
+    var parts = [];
+    if (deltaRisk !== 0) {
+      var dr = (deltaRisk > 0 ? '+' : '') + deltaRisk + '개';
+      parts.push(dr);
+    }
+    if (deltaPop !== 0) {
+      var dp = Math.abs(deltaPop) >= 10000
+        ? (deltaPop > 0 ? '+' : '-') + Math.round(Math.abs(deltaPop)/10000) + '만'
+        : (deltaPop > 0 ? '+' : '-') + Math.round(Math.abs(deltaPop)/1000) + '천';
+      parts.push(dp);
+    }
+    toastDelta(parts.join(' / '), deltaRisk > 0 || deltaPop > 0);
+  }
+}
+
+var _prevRiskPop = 0;
+
+function toastDelta(msg, isUp) {
+  var el = document.getElementById('toast-delta');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'toast-delta';
+    el.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);'
+      + 'z-index:9999;padding:8px 18px;border-radius:20px;font-size:13px;font-weight:700;'
+      + 'pointer-events:none;transition:opacity .4s;opacity:0;';
+    document.body.appendChild(el);
+  }
+  el.textContent = (isUp ? '▲ ' : '▼ ') + msg;
+  el.style.background = isUp ? 'rgba(200,30,30,.85)' : 'rgba(30,100,200,.85)';
+  el.style.color = '#fff';
+  el.style.opacity = '1';
+  clearTimeout(el._timer);
+  el._timer = setTimeout(function(){ el.style.opacity = '0'; }, 1800);
 }
 
 
@@ -1300,18 +1350,17 @@ function filterRegion(region, btn) {
 }
 
 function resetAll() {
+  // 모든 병원 복구
   HOSPS.forEach(function(h) {
     removed[h.hid] = false;
     var mc = hospCircles[h.hid];
     if (mc) {
-      mc.setRadius(h.is_new ? 12 : 9);
-      mc.setStyle({
-        color: 'white',
-        weight: h.is_new ? 2.5 : 2,
-        fillColor: h.color,
-        opacity: 1,
-        fillOpacity: 0.95
-      });
+      if (h.is_new) {
+        mc.setStyle({opacity:0, fillOpacity:0});
+      } else {
+        mc.setRadius(9);
+        mc.setStyle({color:'white',weight:2,fillColor:h.color,opacity:1,fillOpacity:0.95});
+      }
     }
     var lbl = hospLabels[h.hid];
     if (lbl && lbl._icon) {
@@ -1319,14 +1368,52 @@ function resetAll() {
       lbl._icon.style.display = '';
     }
   });
-  currentRemoved = null;
-  toastMsg('모든 병원 복구됨');
+
+  // 강원대병원 해제 (초기 상태)
+  removed['knuh'] = true;
+  currentRemoved = 'knuh';
+  var knuhLbl = hospLabels['knuh'];
+  if (knuhLbl && knuhLbl._icon) knuhLbl._icon.style.opacity = '0.3';
+
+  // 지도 위치·줌 초기화
+  map.setView([37.2, 128.5], 8, {animate: true});
+
+  // 지역 필터 전체로
+  var allBtns = document.querySelectorAll('.region-btn');
+  for(var i=0;i<allBtns.length;i++){
+    if(allBtns[i].textContent.trim()==='전국'){filterRegion('all',allBtns[i]);break;}
+  }
+
+  // 60km 반경 표시 ON
+  var chk = document.getElementById('chk-cover');
+  if (chk && !chk.checked) {
+    chk.checked = true;
+    coverVisible = true;
+    coverLayer.addTo(map);
+  }
+
+  toastMsg('전체 초기화됨');
   applyFilterToCover();
   rebuildRisk();
   updateKnuhLabel();
 }
 
-rebuildRisk();
+// 초기 상태를 resetAll과 동일하게 설정
+(function initState() {
+  // 강원대 해제 상태 확인 (이미 변수에서 설정됨)
+  // 60km 반경 ON (체크박스 이미 checked, coverVisible=true)
+  coverLayer.addTo(map);
+  applyFilterToCover();
+  // 지역 필터 전국
+  var allBtns = document.querySelectorAll('.region-btn');
+  for(var i=0;i<allBtns.length;i++){
+    if(allBtns[i].textContent.trim()==='전국'){filterRegion('all',allBtns[i]);break;}
+  }
+  _prevRiskPop = 0;
+  rebuildRisk();
+  updateKnuhLabel();
+  knuhToFront();
+})();
 
 // ── 패널 토글 ────────────────────────────────────────────────
 var _panelOpen = true;
@@ -1402,7 +1489,7 @@ function updateKnuhLabel() {
   var lbl = document.getElementById('knuh-toggle-label');
   if (!lbl) return;
   if (removed['knuh']) {
-    lbl.textContent = '▶ 클릭하면 신규지정';
+    lbl.textContent = '클릭! 신규지정';
     lbl.style.color = '#FF6B00';
   } else {
     lbl.textContent = '✕ 지정해제 클릭';
