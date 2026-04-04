@@ -8,17 +8,10 @@ st.set_page_config(page_title="강원대병원 상급종합병원 시나리오",
 # 웹 브라우저 창 크기에 맞춰 지도가 반응형으로 늘어나도록 CSS 주입
 st.markdown("""
 <style>
-    /* 1. 데스크톱 상하단 여백 축소 (타이틀 삭제로 인한 여백 조정) */
+    /* 1. 기본 상하단 여백 조정 (Streamlit 상단 고정 헤더(Deploy, 메뉴 버튼)에 지도가 가려지지 않도록 3.5rem 여백 확보) */
     .block-container {
-        padding-top: 1.5rem !important;
+        padding-top: 3.5rem !important;
         padding-bottom: 1rem !important;
-    }
-    
-    /* 1-1. 모바일 환경(폭 768px 이하) 처리: Streamlit 기본 상단 헤더(햄버거 메뉴)에 지도가 가려지지 않도록 상단 여백 추가 */
-    @media (max-width: 768px) {
-        .block-container {
-            padding-top: 3.5rem !important;
-        }
     }
 
     /* 2. Streamlit이 생성하는 iframe(지도 렌더링 영역)의 높이를 화면의 95%로 확장 */
