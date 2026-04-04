@@ -686,7 +686,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 /* ── 왼쪽 패널 (범례) ── */
 #panel-left{
-  position:absolute;top:56px;left:10px;z-index:1000;
+  position:absolute;top:72px;left:10px;z-index:1000;
   background:rgba(255,255,255,.97);
   border-radius:12px;
   box-shadow:0 2px 16px rgba(0,0,0,.18);
@@ -703,7 +703,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 /* ── 오른쪽 패널 (현황) ── */
 #panel-right{
-  position:absolute;top:56px;right:10px;z-index:1000;
+  position:absolute;top:72px;right:10px;z-index:1000;
   background:rgba(255,255,255,.97);
   border-radius:12px;
   box-shadow:0 2px 16px rgba(0,0,0,.18);
@@ -765,16 +765,16 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 /* ── 지역 필터 탭 ── */
 #region-filter{
-  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  position:absolute;bottom:18px;right:10px;left:10px;transform:none;
   z-index:1000;display:flex;gap:4px;
   background:rgba(255,255,255,.95);
-  padding:5px 8px;border-radius:20px;
+  padding:4px 6px;border-radius:20px;
   box-shadow:0 2px 12px rgba(0,0,0,.18);
   border:1px solid rgba(28,66,155,.1);
-  max-width:calc(100vw - 20px);flex-wrap:wrap;justify-content:center;
+  max-width:calc(100vw - 20px);flex-wrap:wrap;justify-content:flex-end;
 }
 .region-btn{
-  padding:3px 10px;border-radius:12px;
+  padding:3px 7px;border-radius:12px;
   border:1.5px solid var(--rc,#1C429B);
   background:color-mix(in srgb, var(--rc,#1C429B) 10%, white);
   font-size:10px;cursor:pointer;font-weight:700;
@@ -802,13 +802,80 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
   backdrop-filter:blur(4px);white-space:nowrap;
 }
 
+/* ── 패널 토글 버튼 ── */
+
+
+@media(max-width:600px){
+  /* 헤더 내 버튼으로 대체 */
+  #panel-left{
+    position:fixed;top:72px;left:10px;right:auto;
+    max-height:calc(100vh - 120px);overflow-y:auto;
+    transform-origin:top left;
+  }
+
+  #panel-left{width:200px}
+  #title-text{font-size:12px}
+  #title-badge{display:none}
+  .stat-value{font-size:12px}
+  #region-filter{bottom:18px;}
+
+}
 @media(max-width:480px){
-  #panel-left{width:166px}
+  #panel-left{width:186px}
   #panel-right{width:156px}
   #title-text{font-size:12px}
   #title-badge{display:none}
   .stat-value{font-size:12px}
   #region-filter{bottom:10px}
+}
+
+/* ── 패널 헤더 토글 버튼 ── */
+.panel-header-btn{
+  background:none;border:none;color:#fff;
+  cursor:pointer;font-size:13px;font-weight:700;
+  padding:0 2px;line-height:1;opacity:.85;
+  flex-shrink:0;
+}
+.panel-header-btn:hover{opacity:1;}
+#panel-left-header{
+  display:flex;align-items:center;justify-content:space-between;
+}
+
+/* 패널 숨김 시 플로팅 복원 버튼 */
+#panel-restore-btn{
+  display:none;
+  position:fixed;top:76px;left:10px;z-index:1100;
+  background:#1C429B;color:#fff;
+  border:none;border-radius:8px;
+  padding:5px 10px;font-size:10px;font-weight:700;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  cursor:pointer;
+}
+#filter-restore-btn{
+  display:none;
+  position:fixed;bottom:10px;right:10px;left:auto;transform:none;z-index:1100;
+  background:#1C429B;color:#fff;
+  border:none;border-radius:8px;
+  padding:5px 12px;font-size:10px;font-weight:700;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  cursor:pointer;
+}
+
+#panel-left{
+  transition:transform .25s ease, opacity .25s ease;
+  transform-origin:top left;
+}
+#panel-left.panel-hidden{
+  transform:scale(0.95) translateY(-8px);
+  opacity:0;pointer-events:none;
+}
+#region-filter{
+  transition:transform .25s ease, opacity .25s ease;
+  transform-origin:bottom center;
+}
+#region-filter.filter-hidden{
+  transform:scale(0.95) translateY(8px);
+  opacity:0;pointer-events:none;
 }
 </style>
 </head>
@@ -826,7 +893,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 <!-- 왼쪽 패널: 범례 -->
 <div id="panel-left">
-  <div id="panel-left-header">📍 범례 &amp; 접근성 현황</div>
+  <div id="panel-left-header">📍 범례 &amp; 접근성 현황<button class="panel-header-btn" onclick="togglePanel()" id="panel-toggle-btn" title="패널 닫기">✕</button></div>
   <div id="panel-left-body">
 
     <div class="legend-section">
@@ -891,7 +958,11 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 </div>
 
 <!-- 하단 지역 필터 -->
+<button id="panel-restore-btn" onclick="togglePanel()" title="범례 열기">📍 범례</button>
+<button id="filter-restore-btn" onclick="toggleFilter()" title="지역 필터 열기">🗺 지역선택</button>
+
 <div id="region-filter">
+  <button id="filter-toggle-btn" class="region-btn" onclick="toggleFilter()" style="--rc:#555;font-size:13px;padding:3px 8px;" title="필터 닫기">✕</button>
   <button class="region-btn active" data-color="#1C429B" onclick="filterRegion('all',this)" style="--rc:#1C429B;">전체</button>
   <button class="region-btn" data-color="#27AE60" onclick="filterRegion('강원',this)" style="--rc:#27AE60;">강원</button>
   <button class="region-btn" data-color="#2E6DB4" onclick="filterRegion('경기/인천',this)" style="--rc:#2E6DB4;">경기·인천</button>
@@ -946,7 +1017,8 @@ HOSPS.forEach(function(h) {
   var c = L.circle([h.lat, h.lon], {
     radius: 60000,
     color: h.color, weight: 0.8,
-    fill: true, fillColor: h.color, fillOpacity: 0.07
+    fill: true, fillColor: h.color, fillOpacity: 0.07,
+    interactive: false
   });
   coverCircles[h.hid] = c;
   coverLayer.addLayer(c);
@@ -1249,6 +1321,37 @@ function resetAll() {
 }
 
 rebuildRisk();
+
+// ── 패널 토글 ────────────────────────────────────────────────
+var _panelOpen = true;
+var _filterOpen = true;
+function toggleFilter() {
+  var filter = document.getElementById('region-filter');
+  var btn    = document.getElementById('filter-toggle-btn');
+  _filterOpen = !_filterOpen;
+  var restoreBtn = document.getElementById('filter-restore-btn');
+  if (_filterOpen) {
+    filter.classList.remove('filter-hidden');
+    if (restoreBtn) restoreBtn.style.display = 'none';
+  } else {
+    filter.classList.add('filter-hidden');
+    if (restoreBtn) restoreBtn.style.display = 'block';
+  }
+}
+
+function togglePanel() {
+  var panel = document.getElementById('panel-left');
+  var btn   = document.getElementById('panel-toggle-btn');
+  _panelOpen = !_panelOpen;
+  var restoreBtn = document.getElementById('panel-restore-btn');
+  if (_panelOpen) {
+    panel.classList.remove('panel-hidden');
+    if (restoreBtn) restoreBtn.style.display = 'none';
+  } else {
+    panel.classList.add('panel-hidden');
+    if (restoreBtn) restoreBtn.style.display = 'block';
+  }
+}
 
 // 팝업 닫기 버튼 전역 차단
 document.addEventListener('click', function(e) {
