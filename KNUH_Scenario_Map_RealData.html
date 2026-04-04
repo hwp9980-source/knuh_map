@@ -943,19 +943,20 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
       <div class="legend-title">접근성 현황</div>
       <div style="display:flex;gap:0;margin-bottom:4px;align-items:stretch;">
         <div class="stat-card" style="flex:1;min-width:0;padding:3px 4px">
-          <div class="stat-label">활성병원</div>
+          <div class="stat-label">상종</div>
           <div class="stat-value" id="i-active-val" style="font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
           
         </div>
         <div class="stat-card warning" style="flex:1;min-width:0;padding:3px 4px">
-          <div class="stat-label">취약지역</div>
+          <div class="stat-label">취약지</div>
           <div class="stat-value" id="i-risk-val" style="font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
           
         </div>
-        <div class="stat-card caution" style="flex:1;min-width:0;padding:3px 4px">
+      </div>
+      <div style="margin-bottom:3px;">
+        <div class="stat-card caution" style="padding:3px 6px;">
           <div class="stat-label">취약인구</div>
-          <div class="stat-value" id="i-pop-val" style="font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">—</div>
-          
+          <div class="stat-value" id="i-pop-val" style="font-size:10px;white-space:nowrap;">—</div>
         </div>
       </div>
       <button id="btn-reset" onclick="resetAll()" ondblclick="event.stopPropagation();event.preventDefault();" style="width:100%">↺ 전체 초기화</button>
@@ -1081,7 +1082,7 @@ function riskSize(m) {
 }
 function getBest(loc) {
   var best = null, bestName = null;
-  // 활성병원 중 실측값 있는 것 우선 탐색
+  // 상종 중 실측값 있는 것 우선 탐색
   HOSPS.forEach(function(h) {
     if (removed[h.hid]) return;
     var v = (loc.osrm || {})[h.hid];
@@ -1155,7 +1156,7 @@ HOSPS.forEach(function(h) {
   hospLabels[h.hid] = label;
 });
 
-// ── 취약지역 마커 (동적) ─────────────────────────────────────
+// ── 취약지 마커 (동적) ─────────────────────────────────────
 var riskLayer = L.layerGroup().addTo(map);
 
 function rebuildRisk() {
@@ -1204,7 +1205,7 @@ function rebuildRisk() {
     if (inFilter) riskLayer.addLayer(c);
   });
 
-  // 활성병원: 필터 적용
+  // 상종: 필터 적용
   var act = HOSPS.filter(function(h) {
     if (removed[h.hid]) return false;
     return currentFilter === 'all' || h.region === currentFilter;
@@ -1343,7 +1344,7 @@ function filterRegion(region, btn) {
     }
   });
 
-  // 취약지역 마커도 해당 권역만 표시
+  // 취약지 마커도 해당 권역만 표시
   rebuildRisk();
   // 커버리지 원도 필터 적용
   applyFilterToCover();
