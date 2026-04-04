@@ -674,7 +674,10 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
   display:flex;align-items:center;justify-content:space-between;
   box-shadow:0 2px 12px rgba(0,0,0,.35);
   border-bottom:2px solid rgba(53,157,226,.6);
-  pointer-events:none;
+  pointer-events:auto;
+  cursor:default;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 #title-text{font-weight:700;font-size:14px;letter-spacing:.3px;white-space:nowrap}
 #title-sub{font-size:10px;color:rgba(255,255,255,.85);margin-top:1px}
@@ -765,13 +768,13 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 /* ── 지역 필터 탭 ── */
 #region-filter{
-  position:absolute;bottom:18px;right:10px;left:10px;transform:none;
+  position:absolute;top:72px;right:10px;left:auto;transform:none;
   z-index:1000;display:flex;gap:4px;
   background:rgba(255,255,255,.95);
-  padding:4px 6px;border-radius:20px;
+  padding:4px 6px;border-radius:12px;
   box-shadow:0 2px 12px rgba(0,0,0,.18);
   border:1px solid rgba(28,66,155,.1);
-  max-width:calc(100vw - 20px);flex-wrap:wrap;justify-content:flex-end;
+  max-width:calc(100vw - 220px);flex-wrap:wrap;justify-content:flex-end;
 }
 .region-btn{
   padding:3px 7px;border-radius:12px;
@@ -831,14 +834,17 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 
 /* ── 패널 헤더 토글 버튼 ── */
 .panel-header-btn{
-  background:none;border:none;color:#fff;
-  cursor:pointer;font-size:13px;font-weight:700;
-  padding:0 2px;line-height:1;opacity:.85;
-  flex-shrink:0;
+  position:absolute;top:4px;right:6px;
+  background:rgba(255,255,255,.18);border:none;color:#fff;
+  cursor:pointer;font-size:12px;font-weight:700;
+  width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;opacity:.9;z-index:2;
 }
-.panel-header-btn:hover{opacity:1;}
+.panel-header-btn:hover{opacity:1;background:rgba(255,255,255,.3);}
 #panel-left-header{
-  display:flex;align-items:center;justify-content:space-between;
+  display:flex;align-items:center;
+  position:relative;padding-right:28px;
 }
 
 /* 패널 숨김 시 플로팅 복원 버튼 */
@@ -853,7 +859,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 }
 #filter-restore-btn{
   display:none;
-  position:fixed;bottom:10px;right:10px;left:auto;transform:none;z-index:1100;
+  position:fixed;top:76px;right:10px;left:auto;transform:none;z-index:1100;
   background:#1C429B;color:#fff;
   border:none;border-radius:8px;
   padding:5px 12px;font-size:10px;font-weight:700;
@@ -962,7 +968,7 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 <button id="filter-restore-btn" onclick="toggleFilter()" title="지역 필터 열기">🗺 지역선택</button>
 
 <div id="region-filter">
-  <button id="filter-toggle-btn" class="region-btn" onclick="toggleFilter()" style="--rc:#555;font-size:13px;padding:3px 8px;" title="필터 닫기">✕</button>
+  <button id="filter-toggle-btn" onclick="toggleFilter()" title="필터 닫기" style="position:absolute;top:-8px;right:-8px;width:18px;height:18px;border-radius:50%;background:#888;border:none;color:#fff;font-size:10px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;padding:0;">✕</button>
   <button class="region-btn active" data-color="#1C429B" onclick="filterRegion('all',this)" style="--rc:#1C429B;">전체</button>
   <button class="region-btn" data-color="#27AE60" onclick="filterRegion('강원',this)" style="--rc:#27AE60;">강원</button>
   <button class="region-btn" data-color="#2E6DB4" onclick="filterRegion('경기/인천',this)" style="--rc:#2E6DB4;">경기·인천</button>
@@ -1360,6 +1366,14 @@ document.addEventListener('click', function(e) {
     e.preventDefault();
   }
 }, true);
+
+// 헤더 클릭/터치가 지도로 전파되지 않도록 차단
+var titleEl = document.getElementById('title');
+if (titleEl) {
+  titleEl.addEventListener('click', function(e){ e.stopPropagation(); });
+  titleEl.addEventListener('touchstart', function(e){ e.stopPropagation(); }, {passive:true});
+  titleEl.addEventListener('touchend', function(e){ e.stopPropagation(); }, {passive:true});
+}
 
 // 초기 KNUH 마커 상태 반영 (토글 오프)
 (function() {
