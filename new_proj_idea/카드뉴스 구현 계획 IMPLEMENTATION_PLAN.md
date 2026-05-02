@@ -191,8 +191,8 @@ https://www.doctorsnews.co.kr/rss/allArticle.xml
 
 | 항목 | v1.0 | **v2.0** |
 |------|------|----------|
-| 분류·중복판정 | claude-haiku-4-5 | **Gemini 2.0 Flash (Paid)** |
-| 카드뉴스 생성 | claude-sonnet-4-6 | **Gemini 2.0 Flash (Paid)** |
+| 분류·중복판정 | claude-haiku-4-5 | **Gemini 2.5 Flash (Paid)** |
+| 카드뉴스 생성 | claude-sonnet-4-6 | **Gemini 2.5 Flash (Paid)** |
 | 비용 | ~$2/월 | **~$1 미만/월** |
 
 **Gemini Paid Tier:** 15 RPM 제한이 해제되어 더욱 안정적이고 빠른 생성이 가능합니다.
