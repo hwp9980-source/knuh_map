@@ -1,1 +1,22 @@
 doccon/
+
+# ── 하위 독립 Git 레포 / 에이전트 작업 디렉토리 ──────────────────────
+# knuh-ai-erp 는 별도 git repo (hwp9980-source/knuh-ai-erp) 로 관리됨
+projects/
+
+# Antigravity 에이전트 생성 파일
+.agents/
+CLAUDE.md
+
+# 백업 폴더
+backuup*/
+
+# 민감 정보
+.env
+.env.local
+.env.*.local
+
+# OS / IDE
+Thumbs.db
+.DS_Store
+.vscode/
