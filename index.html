@@ -1114,7 +1114,18 @@ function toastMsg(msg) {
 // ── 병원 마커 ────────────────────────────────────────────────
 var hospLayer   = L.layerGroup().addTo(map);
 var knuhLayer   = L.layerGroup().addTo(map);
-function knuhToFront(){ map.removeLayer(knuhLayer); knuhLayer.addTo(map); }
+// 강원대병원 마커: 지정 해제(removed) 또는 권역 필터 밖이면 지도에서 완전히 제거
+function knuhShouldShow(){
+  if (removed['knuh']) return false;
+  var k = HOSPS.filter(function(x){return x.hid==='knuh';})[0];
+  return !k || currentFilter === 'all' || k.region === currentFilter;
+}
+function syncKnuhMarker(){
+  var on = map.hasLayer(knuhLayer), want = knuhShouldShow();
+  if (want && !on) knuhLayer.addTo(map);
+  else if (!want && on) map.removeLayer(knuhLayer);
+}
+function knuhToFront(){ map.removeLayer(knuhLayer); if (knuhShouldShow()) knuhLayer.addTo(map); }
 var hospCircles = {};
 var hospLabels  = {};
 
@@ -1176,6 +1187,7 @@ document.getElementById('chk-risk').addEventListener('change', function() {
 });
 
 function rebuildRisk() {
+  syncKnuhMarker();
   riskLayer.clearLayers();
   var riskCnt = 0, riskPop = 0;
   var cnt1=0,pop1=0, cnt2=0,pop2=0, cnt3=0,pop3=0;
