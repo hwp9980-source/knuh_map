@@ -746,13 +746,13 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
 .stat-card.caution .stat-value{color:#B35A00}
 
 /* ── 커버리지 토글 ── */
-#cover-toggle{
+#cover-toggle,#risk-toggle{
   display:flex;align-items:center;gap:4px;
   padding:3px 0 0;margin-top:3px;
   border-top:1px solid rgba(28,66,155,.12);cursor:pointer
 }
-#cover-toggle input{width:14px;height:14px;cursor:pointer;accent-color:#1C429B}
-#cover-toggle label{font-size:9px;color:#444;cursor:pointer;font-weight:500}
+#cover-toggle input,#risk-toggle input{width:14px;height:14px;cursor:pointer;accent-color:#1C429B}
+#cover-toggle label,#risk-toggle label{font-size:9px;color:#444;cursor:pointer;font-weight:500}
 
 /* ── 리셋 버튼 ── */
 #btn-reset{
@@ -969,6 +969,10 @@ html,body{height:100%;margin:0;padding:0;font-family:'Malgun Gothic','Apple SD G
       <input type="checkbox" id="chk-cover" checked>
       <label for="chk-cover">60km 반경 표시</label>
     </div>
+    <div id="risk-toggle" style="border-top:none;margin-top:0;padding-top:0">
+      <input type="checkbox" id="chk-risk" checked>
+      <label for="chk-risk">시군 마커 표시</label>
+    </div>
 
   </div>
 </div>
@@ -1162,6 +1166,14 @@ HOSPS.forEach(function(h) {
 
 // ── 취약지 마커 (동적) ─────────────────────────────────────
 var riskLayer = L.layerGroup().addTo(map);
+var riskVisible = true;
+
+// 시군(취약지) 마커 표시 토글 — 통계 수치는 그대로 유지
+document.getElementById('chk-risk').addEventListener('change', function() {
+  riskVisible = this.checked;
+  if (riskVisible) { riskLayer.addTo(map); knuhToFront(); }
+  else { map.removeLayer(riskLayer); }
+});
 
 function rebuildRisk() {
   riskLayer.clearLayers();
@@ -1395,6 +1407,14 @@ function resetAll() {
     chk.checked = true;
     coverVisible = true;
     coverLayer.addTo(map);
+  }
+
+  // 시군 마커 표시 ON
+  var chkR = document.getElementById('chk-risk');
+  if (chkR && !chkR.checked) {
+    chkR.checked = true;
+    riskVisible = true;
+    riskLayer.addTo(map);
   }
 
   toastMsg('전체 초기화됨');
